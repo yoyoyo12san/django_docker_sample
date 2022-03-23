@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<h1>メンバー詳細画面</h1>
+<img src="{% static member.pic %}">
+
+<p>{{ member.id}}</p>
+<p>{{ member.name}}</p>
+<p>{{ member.join }}</p>
+
+{% endblock %}

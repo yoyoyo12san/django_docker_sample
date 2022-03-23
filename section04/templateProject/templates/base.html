@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" type="text/css" href="{% static 'download/home.css' %}">
+        <title>{% block title %}My Page{% endblock %}</title>
+    </head>
+    <body>
+        <h1>My Page</h1>
+        {% block content %}
+        <p>Mypage...</p>
+        {% endblock %}
+    </body>
+</html>

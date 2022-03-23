@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}メンバーページ{% endblock %}
+{% block content %}
+
+{% for member in members %}
+<ul>
+    <li>
+        <a href="{% url 'templateApp:member' id=member.id %}">{{ member.name }}</a>
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}

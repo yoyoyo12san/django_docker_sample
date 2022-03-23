@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    sample
+{% endblock %}
+{% block content %}
+{# templateフィルター機能 （複数組み合わせOK） #}
+{# 大文字 #}
+<h2>{{name | upper}}</h2>
+{# URLリンク #}
+<h2>{{page_url | urlize}}</h2>
+{# 丸め込み :で小数点何桁目を指定 #}
+<h2>BMI:{{bmi | floatformat:2}}</h2>
+{# defaultは変数が存在しない場合に値を表示、変数があれば変数を表示 #}
+<h2>給料:{{salary | default:'秘密'}}</h2>
+<h2>名前:{{name | default:'秘密'}}</h2>
+{# リストの中をランダムに表示 #}
+<h2>{{ ff | random | lower }}</h2>
+{# リストの中を文字で区切って一覧表示 #}
+<h2>{{ ff | join:','}}</h2>
+{# 改行の有効化 （変数の中に改行を含んでいる必要がある）#}
+<h2>{{ msg1 | linebreaks }}</h2>
+{# :で文字数を指定し、それ以降を省略 #}
+<h2>{{ msg2 | truncatechars:7 }}</h2>
+
+{# filterで範囲全体に反映させたり、組み合わせもOK #}
+{% filter linebreaks | upper %}
+<h2>aaa</h2>
+<p>bbb</p>
+<p>{{ msg1 }}</p>
+<p>{{ ff | join:','}}</p>
+{% endfilter%}
+
+{# templateの画面遷移#}
+<a href="{% url 'templateApp:home' f_name='Saburo' l_name='Tanaka' %}">home</a>
+<img src = "{% static 'download/sample.jpg' %}">
+{% endblock %}

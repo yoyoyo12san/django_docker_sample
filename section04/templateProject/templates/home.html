@@ -1,0 +1,19 @@
+{% load event_tags %}
+<p>{{name}}</p>
+{% for f in ff%}
+<p>好きなフルーツ {{f}}</p>
+{% endfor %}
+
+<ul>
+{% for in1, in2 in info.items %}
+<li>{{in1}}は{{in2}}</li>
+{% endfor %}
+</ul>
+<p>{{ff.1}}</p>
+{% if 'age' in info %}
+    {{ info.age }}
+{% endif %}
+<p>{{ status | status_to_string:'/aaa' }}</p>
+{% if your_name %}
+    {{ your_name }}
+{% endif %}
